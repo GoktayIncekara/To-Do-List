@@ -2,6 +2,7 @@ const express = require("express");
 const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 const _ = require("lodash");
+const config = require('./config.json');
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static(__dirname + "/public"));
 
 //mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true});
-mongoose.connect("mongodb+srv://admin-goktay:"+ config.MY_KEY+"@cluster0.hhmov.mongodb.net/todolistDB?retryWrites=true&w=majority", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://admin-goktay:"+ config.MY_KEY +"@cluster0.hhmov.mongodb.net/todolistDB?retryWrites=true&w=majority", {useNewUrlParser: true});
 
 
 const itemsSchema = new mongoose.Schema({
